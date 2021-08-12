@@ -21,6 +21,8 @@ public class MovJugador : MonoBehaviour
     [SerializeField] private float velMov;
     [SerializeField] private float velSalto;
 
+    private bool estaEnElPiso;
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -31,21 +33,37 @@ public class MovJugador : MonoBehaviour
         Mov();
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "piso")
+        {
+            estaEnElPiso = true;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag=="piso")
+        {
+            estaEnElPiso = false;
+        }
+    }
+
     private void Mov()
     {
         if (Input.GetKey(teclaIzq))
         {
-            rb2D.AddForce(Vector2.left * velMov);
+            rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
         }
 
         if (Input.GetKey(teclaDer))
         {
-            rb2D.AddForce(Vector2.right * velMov);
+            rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
         }
 
-        if (Input.GetKey(teclaArr))
+        if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
-            rb2D.AddForce(Vector2.up * velSalto);
+            rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
         }
     }
 }

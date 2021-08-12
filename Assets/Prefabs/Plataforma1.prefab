@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7248625901268665470}
   m_Layer: 0
   m_Name: Plataforma1
-  m_TagString: Untagged
+  m_TagString: piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
