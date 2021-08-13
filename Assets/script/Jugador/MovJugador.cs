@@ -39,6 +39,7 @@ public class MovJugador : MonoBehaviour
         {
             estaEnElPiso = true;
         }
+        
     }
 
    // private void OnCollisionExit2D(Collision2D collision)
