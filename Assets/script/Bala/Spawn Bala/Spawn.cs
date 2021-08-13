@@ -9,7 +9,10 @@ public class Spawn : MonoBehaviour
 
     private void Update()
     {
-        Instantiate(balita,transform.position,Quaternion.identity);  
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+            Instantiate(balita,transform.position,Quaternion.identity);  
+        }
     }
 
 }

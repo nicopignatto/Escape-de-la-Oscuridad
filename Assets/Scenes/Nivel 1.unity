@@ -519,7 +519,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58de302a59a1dba47912c10bd95f7286, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  balita: {fileID: 0}
+  balita: {fileID: 5291682623775852159, guid: f751f65c7fd5d22468456f1d3e4fbd4c, type: 3}
 --- !u!4 &1331508277
 Transform:
   m_ObjectHideFlags: 0

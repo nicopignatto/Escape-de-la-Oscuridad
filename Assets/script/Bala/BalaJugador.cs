@@ -5,12 +5,15 @@ using UnityEngine;
 public class BalaJugador : MonoBehaviour
 {
     private Vector3 target;
+    private Vector3 arma;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
     void Start()
     {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-
-        //transform.up = target - transform.position;
+        target = new Vector3(target.x, target.y, 0);
+        arma = new Vector3 (transform.position.x, transform.position.y, 0);
+        transform.up = target - arma;
+        
         Destroy(gameObject, 3);
 
     }
