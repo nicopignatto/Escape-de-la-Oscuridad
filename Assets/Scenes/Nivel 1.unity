@@ -299,8 +299,8 @@ MonoBehaviour:
   teclaArr: 119
   teclaAbajo: 115
   rb2D: {fileID: 122182287}
-  velMov: 19.19
-  velSalto: 10
+  velMov: 10
+  velSalto: 7
 --- !u!1001 &341929193
 PrefabInstance:
   m_ObjectHideFlags: 0

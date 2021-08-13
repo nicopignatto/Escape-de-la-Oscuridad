@@ -41,13 +41,13 @@ public class MovJugador : MonoBehaviour
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag=="piso")
-        {
-            estaEnElPiso = false;
-        }
-    }
+   // private void OnCollisionExit2D(Collision2D collision)
+   // {
+     //   if (collision.gameObject.tag=="piso")
+       // {
+          //  estaEnElPiso = false;
+        //}
+    //}
 
     private void Mov()
     {
@@ -64,6 +64,7 @@ public class MovJugador : MonoBehaviour
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+            estaEnElPiso = false;
         }
     }
 }
