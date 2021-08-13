@@ -11,7 +11,8 @@ public class Spawn : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            Instantiate(balita,transform.position,Quaternion.identity);  
+            Instantiate(balita,transform.position,Quaternion.identity);
+           
         }
     }
 

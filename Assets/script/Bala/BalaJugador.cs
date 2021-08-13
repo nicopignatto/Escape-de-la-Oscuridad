@@ -9,11 +9,11 @@ public class BalaJugador : MonoBehaviour
     [SerializeField] private float velBala; // esta es la velocidad de la bala
     void Start()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition); /* este codigo(desde linea 12 hasta linea 15) estuve revisando y no hace nada Agus simplemnte inicializa un vector 3 que no representa a ningun objeto  y hace que rote con "transform.up".    by Nico Pignatto*/
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
         target = new Vector3(target.x, target.y, 0);
         arma = new Vector3 (transform.position.x, transform.position.y, 0);
         transform.up = target - arma;
-        //Importante aclaración:No lo voy a borrar hasta q me expliques bien su funcionalidad(codigo linea 12/linea 15),by Nico Pignatto.
+
         Destroy(gameObject, 3);
 
     }
@@ -33,11 +33,15 @@ public class BalaJugador : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)//esto estaria bien sí tuviera collider y habría que mejorarlo para que la bala se destruya/desactive cuando colisione con objetos con tag "piso","pared"(basicamente con cosas del escenario,osea que no sea solamente con enemigos)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "piso")
         {
             Destroy(gameObject);
         }
     }
+   
+    
+    
+  //----------------------------------------------Este código no se sabe si sirve,NO BORRAR----------------------------------------------------------------------------------
     /*[Header("velocidad de la flecha/bala")]
     [SerializeField] private float velBala;
 
