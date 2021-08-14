@@ -42,24 +42,23 @@ public class MovJugador : MonoBehaviour
         
     }
 
-    /*private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag=="piso")
-        {
-            estaEnElPiso = false;
-        }
-    }*/
-
     private void Mov()
     {
         if (Input.GetKey(teclaIzq))
         {
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
         }
-
-        if (Input.GetKey(teclaDer))
+        else
         {
-            rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
+            if (Input.GetKey(teclaDer))
+            {
+                rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
+            }
+            else
+            {
+                rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+            }
+
         }
 
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
