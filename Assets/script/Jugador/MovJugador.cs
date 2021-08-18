@@ -14,6 +14,7 @@ public class MovJugador : MonoBehaviour
 
     [Header("referencias a objetos")]
     [SerializeField] private Rigidbody2D rb2D;
+    [SerializeField] private SpriteRenderer spriteR;
 
     [Space]
 
@@ -26,6 +27,7 @@ public class MovJugador : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        spriteR = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -47,12 +49,14 @@ public class MovJugador : MonoBehaviour
         if (Input.GetKey(teclaIzq))
         {
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
+            spriteR.flipX = false;
         }
         else
         {
             if (Input.GetKey(teclaDer))
             {
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
+                spriteR.flipX = true;
             }
             else
             {
