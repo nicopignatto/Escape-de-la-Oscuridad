@@ -7,7 +7,7 @@ public class MiraMov : MonoBehaviour
     [SerializeField] private bool cursorActivo;
     private void Start()
     {
-      
+        Cursor.visible = false; //Esto sirve para que cuando uno empieza a jugar el mouse no se vea en la pantalla y no se superponga con la mira
     }
 
     void Update()
@@ -18,6 +18,7 @@ public class MiraMov : MonoBehaviour
         DesactivarCursor();
     }
     //estas funciones nuevas sirven para que los dev. puedan activar/desactivar el cursor del mouse de forma comoda
+    
     private void ActivarCursor()
     {
         if (cursorActivo == true)
