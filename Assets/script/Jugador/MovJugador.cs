@@ -24,6 +24,8 @@ public class MovJugador : MonoBehaviour
 
     private bool estaEnElPiso;
 
+    private Quaternion rotacionPersonaje;
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
@@ -49,14 +51,20 @@ public class MovJugador : MonoBehaviour
         if (Input.GetKey(teclaIzq))
         {
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            spriteR.flipX = false;
+            //spriteR.flipX = false;
+            //transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
+            transform.rotation = rotacionPersonaje;
         }
         else
         {
             if (Input.GetKey(teclaDer))
             {
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                spriteR.flipX = true;
+                //spriteR.flipX = true;
+                //transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
+                transform.rotation = rotacionPersonaje;
             }
             else
             {

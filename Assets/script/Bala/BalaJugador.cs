@@ -4,30 +4,37 @@ using UnityEngine;
 
 public class BalaJugador : MonoBehaviour
 {
-    private Vector3 target;
-    private Vector3 arma;
+    private Vector3 posMouse;
+    private Vector3 posBala;
+    private Rigidbody2D rb2D;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
     void Start()
     {
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
-        target = new Vector3(target.x, target.y, 0);
-        arma = new Vector3 (transform.position.x, transform.position.y, 0);
-        transform.up = target - arma;
-
-        Destroy(gameObject, 3);
+        posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
+        posMouse = new Vector3(posMouse.x, posMouse.y, 0f);
+        //target = new Vector3(target.x, target.y, 0);
+        posBala = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+        transform.rotation = Quaternion.Euler(posMouse-posBala);
+        //transform.up = target - arma;
+        rb2D = GetComponent<Rigidbody2D>();
+        //Destroy(gameObject, 3);
 
     }
-
-
-    void Update()
+    private void FixedUpdate()
     {
         Atacar();
     }
 
+    void Update()
+    {
+       // Atacar();
+    }
+
     void Atacar()
     {
-        gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
-
+        rb2D.MovePosition(new Vector2(transform.rotation.x, transform.rotation.y));
+        //gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
+        Destroy(this.gameObject, 6);
 
     }
 
