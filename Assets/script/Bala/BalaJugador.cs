@@ -6,6 +6,7 @@ public class BalaJugador : MonoBehaviour
 {
     private Vector3 posMouse;
     private Vector3 posBala;
+   
     private Rigidbody2D rb2D;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
     void Start()
@@ -14,7 +15,7 @@ public class BalaJugador : MonoBehaviour
         posMouse = new Vector3(posMouse.x, posMouse.y, 0f);
         //target = new Vector3(target.x, target.y, 0);
         posBala = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-        transform.rotation = Quaternion.Euler(posMouse-posBala);
+      
         //transform.up = target - arma;
         rb2D = GetComponent<Rigidbody2D>();
         //Destroy(gameObject, 3);
@@ -32,9 +33,11 @@ public class BalaJugador : MonoBehaviour
 
     void Atacar()
     {
-        rb2D.MovePosition(new Vector2(transform.rotation.x, transform.rotation.y));
+        rb2D.MovePosition(posMouse);
+        transform.rotation = Quaternion.Euler(posMouse);
+
         //gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
-        Destroy(this.gameObject, 6);
+        Destroy(this.gameObject, 3);
 
     }
 

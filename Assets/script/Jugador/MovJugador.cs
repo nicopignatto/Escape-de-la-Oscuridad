@@ -78,5 +78,9 @@ public class MovJugador : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
         }
+        else
+        {
+            rb2D.velocity = new Vector2(rb2D.velocity.x, 0);
+        }
     }
 }
