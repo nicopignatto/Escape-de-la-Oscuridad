@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class BalaJugador : MonoBehaviour
 {
-    private Vector3 posMouse;
-    private Vector3 posBala;
+    private Vector3 target;
+    private Vector3 arma;
+    
    
     private Rigidbody2D rb2D;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
     void Start()
     {
-        posMouse = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
-        posMouse = new Vector3(posMouse.x, posMouse.y, 0f);
-        //target = new Vector3(target.x, target.y, 0);
-        posBala = new Vector3(transform.position.x, transform.position.y, transform.position.z);
-      
-        //transform.up = target - arma;
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
+       /* posMouse = new Vector3(posMouse.x, posMouse.y, 0f);*/
+        target = new Vector3(target.x, target.y, 0);
+        arma = new Vector3(transform.position.x, transform.position.y, transform.position.z);
+
+        
+        transform.up = target - arma;
         rb2D = GetComponent<Rigidbody2D>();
         //Destroy(gameObject, 3);
 
@@ -33,10 +35,10 @@ public class BalaJugador : MonoBehaviour
 
     void Atacar()
     {
-        rb2D.MovePosition(posMouse);
-        transform.rotation = Quaternion.Euler(posMouse);
+        /*rb2D.MovePosition(nuevaPosBala);
+        transform.rotation = Quaternion.Euler(nuevaPosBala);*/ //estos codigos no hay que borrarlos
 
-        //gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
+        gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
         Destroy(this.gameObject, 3);
 
     }
