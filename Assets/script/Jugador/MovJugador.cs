@@ -14,7 +14,7 @@ public class MovJugador : MonoBehaviour
 
     [Header("referencias a objetos")]
     [SerializeField] private Rigidbody2D rb2D;
-    [SerializeField] private SpriteRenderer spriteR;
+    //[SerializeField] private SpriteRenderer spriteR;
 
     [Space]
 
@@ -29,7 +29,7 @@ public class MovJugador : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        spriteR = GetComponent<SpriteRenderer>();
+        //spriteR = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
@@ -39,10 +39,11 @@ public class MovJugador : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "piso")
+        if (collision.gameObject.tag == "piso")
         {
             estaEnElPiso = true;
         }
+
         
     }
 
@@ -78,6 +79,7 @@ public class MovJugador : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
         }
+
        
     }
 }
