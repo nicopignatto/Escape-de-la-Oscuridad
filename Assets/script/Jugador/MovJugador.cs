@@ -36,15 +36,22 @@ public class MovJugador : MonoBehaviour
     {
         Mov();
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "piso")
         {
             estaEnElPiso = true;
+            Debug.Log("estoy triggeando");
         }
+    }
 
-        
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "piso")
+        {
+            estaEnElPiso = false;
+            Debug.Log("no deberias saltar en teoria");
+        }
     }
 
     private void Mov()
@@ -79,7 +86,8 @@ public class MovJugador : MonoBehaviour
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
         }
-
+        
        
     }
+
 }
