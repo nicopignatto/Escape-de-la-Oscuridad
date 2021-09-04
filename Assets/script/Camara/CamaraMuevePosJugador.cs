@@ -7,9 +7,9 @@ public class CamaraMuevePosJugador : MonoBehaviour
     [Header("referencias a objetos/componentes de objetos")]
     [SerializeField] private Transform posDelJugador;
     
-    public float limiteDerecho;
+    /*public float limiteDerecho;
     public float limiteIzquierdo;
-    public float limiteInferior;
+    public float limiteInferior;*/
 
     private void Start()
     {
@@ -17,7 +17,7 @@ public class CamaraMuevePosJugador : MonoBehaviour
     }
     private void Update()
     {
-        if(posDelJugador.position.x <= limiteIzquierdo)
+        /*if(posDelJugador.position.x <= limiteIzquierdo)
         {
             
             transform.position = new Vector3(limiteIzquierdo, transform.position.y, transform.position.z);
@@ -35,11 +35,11 @@ public class CamaraMuevePosJugador : MonoBehaviour
         if (posDelJugador.position.x > limiteIzquierdo && posDelJugador.position.x < limiteDerecho)
         {
             EnfocarJugador();
-        }
+        }*/
     }
 
-    private void EnfocarJugador()
+   /* private void EnfocarJugador()
     {
         transform.position = new Vector3(posDelJugador.position.x, limiteInferior, transform.position.z);
-    }
+    }*/
 }
