@@ -41,7 +41,7 @@ public class MovJugador : MonoBehaviour
         if (collision.gameObject.tag == "piso")
         {
             estaEnElPiso = true;
-            Debug.Log("estoy triggeando");
+            //Debug.Log("estoy triggeando");
         }
     }
 
@@ -50,7 +50,7 @@ public class MovJugador : MonoBehaviour
         if (collision.gameObject.tag == "piso")
         {
             estaEnElPiso = false;
-            Debug.Log("no deberias saltar en teoria");
+            //Debug.Log("no deberias saltar en teoria");
         }
     }
 
