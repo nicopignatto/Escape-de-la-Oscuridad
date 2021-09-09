@@ -42,7 +42,7 @@ public class BalaJugador : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "piso")
         {
-            Destroy(gameObject);
+            Destroy(gameObject, 0.05f);
         }
     }
    

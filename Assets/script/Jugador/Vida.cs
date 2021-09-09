@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Vida : MonoBehaviour
 {
 
-    [SerializeField] float vida = 1f;
+    [SerializeField] private float vida = 1f;
     public Image barraVida;
 
     private void Start()
@@ -33,10 +33,10 @@ public class Vida : MonoBehaviour
 
     void BarraVida()
     {
-        barraVida.fillAmount = vida;
+        //barraVida.fillAmount = vida;
     }
 
-    private void OnCollisionEnter2D(Collider2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
