@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    [SerializeField]int vida = 10; 
+    int vida = 3; 
     private float tiempo;
     private float tiempoC;
     private GameObject jugador;

@@ -2,14 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 
 public class Vida : MonoBehaviour
 {
-
+    
     [SerializeField] private float vida = 1f;
     public Image barraVida;
     [SerializeField] Animator anim;
+    float tiempo = 0;
     private void Start()
     {
     
@@ -29,6 +31,15 @@ public class Vida : MonoBehaviour
         {
             anim.SetBool("muerto",true);
             Debug.Log("Haz Muerto");
+            
+            tiempo += Time.deltaTime;
+
+            if ( tiempo > 2f)
+            {
+                    SceneManager.LoadScene("Nivel 1");
+            }
+
+            
         }
     }
 
