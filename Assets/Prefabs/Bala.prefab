@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5291682623775852156}
   - component: {fileID: 8450882253184742827}
   - component: {fileID: -8077471780048361361}
-  - component: {fileID: -7320241125279141336}
+  - component: {fileID: 3520542721034818902}
   m_Layer: 0
   m_Name: Bala
   m_TagString: Bala
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5291682623775852159}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4163, y: 0.4163, z: 1}
+  m_LocalScale: {x: 0.28, y: 0.28, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -74,8 +74,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: -2413806693520163455, guid: ebe73ca9363db456bacf42c025bb4847, type: 3}
-  m_Color: {r: 0.3468232, g: 0.3962264, b: 0.19624421, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 15b9445fa984b044980c824edf115516, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -119,8 +119,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 1
   m_Constraints: 4
---- !u!58 &-7320241125279141336
-CircleCollider2D:
+--- !u!70 &3520542721034818902
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -132,6 +132,6 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.5
+  m_Offset: {x: -0.019583484, y: 0}
+  m_Size: {x: 0.18540843, y: 5.12}
+  m_Direction: 0

@@ -9,7 +9,7 @@ public class Vida : MonoBehaviour
 
     [SerializeField] private float vida = 1f;
     public Image barraVida;
-
+    [SerializeField] Animator anim;
     private void Start()
     {
     
@@ -27,20 +27,21 @@ public class Vida : MonoBehaviour
     {
         if (vida <= 0)
         {
+            anim.SetBool("muerto",true);
             Debug.Log("Haz Muerto");
         }
     }
 
     void BarraVida()
     {
-        //barraVida.fillAmount = vida;
+        barraVida.fillAmount = vida;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            vida = vida - 0.3f;
+            vida = vida - 0.15f;
         }
     }
 

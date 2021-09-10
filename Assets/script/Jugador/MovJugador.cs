@@ -14,7 +14,7 @@ public class MovJugador : MonoBehaviour
 
     [Header("referencias a objetos")]
     [SerializeField] private Rigidbody2D rb2D;
-    //[SerializeField] private SpriteRenderer spriteR;
+    [SerializeField] private SpriteRenderer spriteR;
 
     [Space]
 
@@ -23,6 +23,7 @@ public class MovJugador : MonoBehaviour
     [SerializeField] private float velSalto;
 
     private bool estaEnElPiso;
+    [SerializeField] Animator anim;
 
     private Quaternion rotacionPersonaje;
 
@@ -30,21 +31,24 @@ public class MovJugador : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         estaEnElPiso = true;
-        //spriteR = GetComponent<SpriteRenderer>();
+        spriteR = GetComponent<SpriteRenderer>();
     }
 
     private void FixedUpdate()
     {
         Mov();
     }
-    private void OnCollisonEnter2D(Collider2D collision)
+
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "piso")
         {
             estaEnElPiso = true;
-            //Debug.Log("estoy triggeando");
+            Debug.Log("estoy triggeando");
+            anim.SetBool("saltar", false);
         }
     }
+    
 
     //private void OnTriggerExit2D(Collider2D collision)
     //{
@@ -59,33 +63,44 @@ public class MovJugador : MonoBehaviour
     {
         if (Input.GetKey(teclaIzq))
         {
+            anim.SetBool("caminar", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            //spriteR.flipX = false;
+            spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
-            transform.rotation = rotacionPersonaje;
+            //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
+            //transform.rotation = rotacionPersonaje;
         }
         else
         {
             if (Input.GetKey(teclaDer))
             {
+                anim.SetBool("caminar", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                //spriteR.flipX = true;
+                spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
-                transform.rotation = rotacionPersonaje;
+                //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
+                //transform.rotation = rotacionPersonaje;
             }
             else
             {
+                anim.SetBool("caminar", false);
                 rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             }
 
         }
 
+        if (estaEnElPiso == false)
+        {
+            
+            anim.SetBool("caminar", false);
+        }
+
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
+            anim.SetBool("saltar", true);
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
+            
         }
         
        

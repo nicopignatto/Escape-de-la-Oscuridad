@@ -19,7 +19,7 @@ public class BalaJugador : MonoBehaviour
         arma = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         nuevaDireccionBala = target - arma;
         
-        //transform.up = target - arma;
+        transform.up = target - arma;
         rb2D = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 3);
 
