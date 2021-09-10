@@ -12,9 +12,10 @@ public class Vida : MonoBehaviour
     public Image barraVida;
     [SerializeField] Animator anim;
     float tiempo = 0;
+    Rigidbody2D rb2D;
     private void Start()
     {
-    
+        rb2D = GetComponent<Rigidbody2D>();
     }
 
 
