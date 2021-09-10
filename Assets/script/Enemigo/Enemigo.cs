@@ -30,7 +30,7 @@ public class Enemigo : MonoBehaviour
     {
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.Find("Jugador");
-        
+        movAtaque = false;
     }
 
     private void FixedUpdate()
@@ -77,7 +77,7 @@ public class Enemigo : MonoBehaviour
         else
         {
             anim.SetBool("atacando", false);
-            movAtaque = true;
+            
         }
     }
     private void MovAtaque()
