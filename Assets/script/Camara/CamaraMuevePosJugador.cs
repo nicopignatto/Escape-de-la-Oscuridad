@@ -36,7 +36,7 @@ public class CamaraMuevePosJugador : MonoBehaviour
         {
             EnfocarJugador();
         }*/
-        this.transform.position = new Vector3(posDelJugador.position.x, posDelJugador.position.y, transform.position.z);
+        this.transform.position = new Vector3(posDelJugador.position.x, posDelJugador.position.y + 2f, transform.position.z);
     }
 
    /* private void EnfocarJugador()
