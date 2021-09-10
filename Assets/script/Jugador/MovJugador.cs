@@ -29,6 +29,7 @@ public class MovJugador : MonoBehaviour
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        estaEnElPiso = true;
         //spriteR = GetComponent<SpriteRenderer>();
     }
 
@@ -36,7 +37,7 @@ public class MovJugador : MonoBehaviour
     {
         Mov();
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisonEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "piso")
         {
@@ -45,14 +46,14 @@ public class MovJugador : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "piso")
-        {
-            estaEnElPiso = false;
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+      //  if (collision.gameObject.tag == "piso")
+        //{
+          //  estaEnElPiso = false;
             //Debug.Log("no deberias saltar en teoria");
-        }
-    }
+        //}
+    //}
 
     private void Mov()
     {
@@ -61,7 +62,7 @@ public class MovJugador : MonoBehaviour
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
             //spriteR.flipX = false;
             //transform.eulerAngles = new Vector3(0f, 0f, 0f);
-            rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
+            rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             transform.rotation = rotacionPersonaje;
         }
         else
@@ -71,7 +72,7 @@ public class MovJugador : MonoBehaviour
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
                 //spriteR.flipX = true;
                 //transform.eulerAngles = new Vector3(0f, 180f, 0f);
-                rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
+                rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 transform.rotation = rotacionPersonaje;
             }
             else
