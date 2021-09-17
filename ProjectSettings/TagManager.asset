@@ -8,6 +8,7 @@ TagManager:
   - sensor
   - Enemy
   - Bala
+  - Oscuridad
   layers:
   - Default
   - TransparentFX

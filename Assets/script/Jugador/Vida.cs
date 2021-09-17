@@ -55,6 +55,11 @@ public class Vida : MonoBehaviour
         {
             vida = vida - 0.15f;
         }
+
+        if (collision.gameObject.tag == "Oscuridad")
+        {
+            vida = vida - 20;
+        }
     }
 
 }
