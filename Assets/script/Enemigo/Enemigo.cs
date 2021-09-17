@@ -57,6 +57,7 @@ public class Enemigo : MonoBehaviour
         {
             movAtaque = false;
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+            lanza.SetActive(false);
             anim.SetBool("muerte", true);
             Destroy(this.gameObject, 1);
         }

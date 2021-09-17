@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6332769178702325107}
   m_Layer: 0
   m_Name: Enemigo (1)
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,7 +99,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5550020b421f2e4a97401096cd867c1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 10
   lanza: {fileID: 8844653652478147589}
   anim: {fileID: 6332769178702325107}
   tiepCamb: 4
