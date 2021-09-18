@@ -31,6 +31,7 @@ public class Enemigo : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.Find("Jugador");
         movAtaque = false;
+        
     }
 
     private void FixedUpdate()
@@ -46,6 +47,7 @@ public class Enemigo : MonoBehaviour
         if (distanciaEntreEA < distanciaAtaque && distanciaEntreEA > distanciaGolpeo)
         {
             movAtaque = true;
+            lanza.transform.localScale = new Vector3(0, 1, 1);
         }
         if (movAtaque == true)
         {
@@ -146,17 +148,18 @@ public class Enemigo : MonoBehaviour
 
         if (tiempoC < 0.5)
         {
-            lanza.transform.localScale = new Vector3(1, 1, 1);
+            lanza.transform.localScale = new Vector3(0, 1, 1);
         }
         
         if (tiempoC > 0.5)
         {
-            lanza.transform.localScale = new Vector3(0, 1, 1);
+            lanza.transform.localScale = new Vector3(1, 1, 1);
         }
 
         if (tiempoC > 1)
         {
             tiempoC = 0;
+            
         }
     }
 

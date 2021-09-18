@@ -13,9 +13,11 @@ public class Vida : MonoBehaviour
     [SerializeField] Animator anim;
     float tiempo = 0;
     Rigidbody2D rb2D;
+    
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        
     }
 
 
@@ -32,7 +34,8 @@ public class Vida : MonoBehaviour
         {
             anim.SetBool("muerto",true);
             Debug.Log("Haz Muerto");
-            
+            Destroy(rb2D);
+
             tiempo += Time.deltaTime;
 
             if ( tiempo > 2f)
