@@ -940,7 +940,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191041451}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 134.14, y: -1.19, z: 0}
+  m_LocalPosition: {x: 134.3, y: -1.6, z: 0}
   m_LocalScale: {x: 8.618329, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -23903,6 +23903,18 @@ PrefabInstance:
       propertyPath: anim
       value: 
       objectReference: {fileID: 1906333107}
+    - target: {fileID: 6252415834323729868, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: spriteR
+      value: 
+      objectReference: {fileID: 982684877}
+    - target: {fileID: 6252415834323729868, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: velSalto
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252415834323729868, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: capaDelPiso.m_Bits
+      value: 64
+      objectReference: {fileID: 0}
     - target: {fileID: 6252415834323729871, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -23951,6 +23963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jugador
       objectReference: {fileID: 0}
+    - target: {fileID: 6252415835264111469, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: -964228994112308473, guid: 0000000000000000d000000000000000, type: 0}
     - target: {fileID: 7715920651435339736, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
       propertyPath: barraVida
       value: 
@@ -25224,6 +25240,11 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &982684877 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 6252415834323729870, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+  m_PrefabInstance: {fileID: 566115001}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &996919740
 GameObject:
   m_ObjectHideFlags: 0
@@ -26861,8 +26882,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1515462667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 6.77, y: 3.69, z: -19.521515}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 6.2407, y: 4.1213, z: -19.521515}
+  m_LocalScale: {x: 0.5552, y: 0.5388, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
@@ -65547,7 +65568,7 @@ GameObject:
   - component: {fileID: 1671457929}
   - component: {fileID: 1671457932}
   - component: {fileID: 1671457933}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataformas Bosque
   m_TagString: piso
   m_Icon: {fileID: 0}
@@ -71370,9 +71391,9 @@ GameObject:
   - component: {fileID: 1760692029}
   - component: {fileID: 1760692028}
   - component: {fileID: 1760692027}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Plataformas Pueblo
-  m_TagString: Untagged
+  m_TagString: piso
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

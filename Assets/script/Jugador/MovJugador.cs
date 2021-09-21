@@ -23,6 +23,8 @@ public class MovJugador : MonoBehaviour
     [SerializeField] private float velSalto;
 
     private bool estaEnElPiso;
+    private RaycastHit2D rayitoPies;
+    [SerializeField]private LayerMask capaDelPiso;
     [SerializeField] Animator anim;
 
     private Quaternion rotacionPersonaje;
@@ -32,14 +34,16 @@ public class MovJugador : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         estaEnElPiso = true;
         spriteR = GetComponent<SpriteRenderer>();
+        
     }
 
     private void FixedUpdate()
     {
         Mov();
+        Debug.DrawRay(transform.position, Vector3.down.normalized*2, Color.red);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "piso")
         {
@@ -47,20 +51,15 @@ public class MovJugador : MonoBehaviour
             Debug.Log("estoy triggeando");
             anim.SetBool("saltar", false);
         }
-    }
+    }*/
     
-
-    //private void OnTriggerExit2D(Collider2D collision)
-    //{
-      //  if (collision.gameObject.tag == "piso")
-        //{
-          //  estaEnElPiso = false;
-            //Debug.Log("no deberias saltar en teoria");
-        //}
-    //}
 
     private void Mov()
     {
+        
+
+        rayitoPies = Physics2D.Raycast(this.transform.position, Vector2.down, 2f, capaDelPiso);
+
         if (Input.GetKey(teclaIzq))
         {
             anim.SetBool("caminar", true);
@@ -93,6 +92,15 @@ public class MovJugador : MonoBehaviour
         {
             
             anim.SetBool("caminar", false);
+        }
+
+        if (rayitoPies==true)
+        {
+            estaEnElPiso = true;
+        }
+        else
+        {
+            estaEnElPiso = false;
         }
 
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)

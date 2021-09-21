@@ -11,8 +11,14 @@ public class BalaJugador : MonoBehaviour
    
     private Rigidbody2D rb2D;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
+   /* Vector3 direccFlechas;
+    Vector3 direccObjetivo;
+    float anguloRotacionFlechas;*/
     void Start()
     {
+         /*direccFlechas = transform.up;
+         direccObjetivo = target - transform.position;
+         anguloRotacionFlechas = Vector3.SignedAngle(direccFlechas, direccObjetivo, this.transform.forward);*/ //revisar estas lineas de codigo antes de implementar
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
       
         target = new Vector3(target.x, target.y, 0);
@@ -31,8 +37,9 @@ public class BalaJugador : MonoBehaviour
 
     void Atacar()
     {
-
-        rb2D.velocity = nuevaDireccionBala * velBala *Time.fixedDeltaTime;
+       
+       /* transform.Rotate(new Vector3(0f, 0f, anguloRotacionFlechas));*/
+        rb2D.velocity = nuevaDireccionBala.normalized * velBala *Time.fixedDeltaTime;
         //gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
         
 
@@ -45,22 +52,4 @@ public class BalaJugador : MonoBehaviour
             Destroy(gameObject, 0.05f);
         }
     }
-   
-    
-    
-  //----------------------------------------------Este código no se sabe si sirve,NO BORRAR----------------------------------------------------------------------------------
-    /*[Header("velocidad de la flecha/bala")]
-    [SerializeField] private float velBala;
-
-    private Rigidbody2D rb2D;
-
-    private void Start()
-    {
-        rb2D = gameObject.GetComponent<Rigidbody2D>();       
-    }
-
-    private void FixedUpdate()
-    {
-        rb2D.MovePosition(new Vector2(Input.mousePosition.x, Input.mousePosition.y));
-    }*/
 }
