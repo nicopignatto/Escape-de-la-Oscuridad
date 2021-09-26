@@ -11,21 +11,21 @@ public class BalaJugador : MonoBehaviour
    
     private Rigidbody2D rb2D;
     [SerializeField] private float velBala; // esta es la velocidad de la bala
-   /* Vector3 direccFlechas;
+    //estas variables de abajo ayudan a sacar a el angulo de rotacion de la bala
+    Vector3 direccFlechas;
     Vector3 direccObjetivo;
-    float anguloRotacionFlechas;*/
+    float anguloRotacionFlechas;
     void Start()
     {
-         /*direccFlechas = transform.up;
-         direccObjetivo = target - transform.position;
-         anguloRotacionFlechas = Vector3.SignedAngle(direccFlechas, direccObjetivo, this.transform.forward);*/ //revisar estas lineas de codigo antes de implementar
-        target = Camera.main.ScreenToWorldPoint(Input.mousePosition); // este codigo(desde linea 12 hasta linea 15) se encarga de rotar la bala para que vaya a cualquier posicion.
-      
+        target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         target = new Vector3(target.x, target.y, 0);
+        direccFlechas = transform.up;
+        direccObjetivo = target - transform.position;
+        anguloRotacionFlechas = Vector3.SignedAngle(direccFlechas, direccObjetivo, this.transform.forward); 
         arma = new Vector3(transform.position.x, transform.position.y, transform.position.z);
         nuevaDireccionBala = target - arma;
         
-        transform.up = target - arma;
+       // transform.up = target - arma;
         rb2D = GetComponent<Rigidbody2D>();
         Destroy(gameObject, 3);
 
@@ -37,11 +37,13 @@ public class BalaJugador : MonoBehaviour
 
     void Atacar()
     {
-       
-       /* transform.Rotate(new Vector3(0f, 0f, anguloRotacionFlechas));*/
+        transform.rotation = Quaternion.Euler(new Vector3(0f, 0f, anguloRotacionFlechas));
+
         rb2D.velocity = nuevaDireccionBala.normalized * velBala *Time.fixedDeltaTime;
+       
+
         //gameObject.transform.Translate(Vector3.up * velBala * Time.deltaTime);
-        
+
 
     }
 

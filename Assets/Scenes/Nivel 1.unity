@@ -23963,6 +23963,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jugador
       objectReference: {fileID: 0}
+    - target: {fileID: 6252415835264111466, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: miraDelJugador
+      value: 
+      objectReference: {fileID: 1515462667}
     - target: {fileID: 6252415835264111469, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
       propertyPath: m_Icon
       value: 
