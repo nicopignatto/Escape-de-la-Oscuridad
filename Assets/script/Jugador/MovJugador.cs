@@ -97,6 +97,7 @@ public class MovJugador : MonoBehaviour
         if (rayitoPies==true)
         {
             estaEnElPiso = true;
+            anim.SetBool("saltar", false);
         }
         else
         {

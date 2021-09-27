@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Bala
   - Oscuridad
+  - LimiteIz
+  - LimiteDer
   layers:
   - Default
   - TransparentFX
