@@ -5,10 +5,10 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 
-public class Vida : MonoBehaviour
+public class VidaPJ : MonoBehaviour
 {
-    
-    [SerializeField] private int vida = 8;
+
+    [SerializeField] private int vida;
     public Slider barraVida;
     [SerializeField] Animator anim;
     float tiempo = 0;
@@ -65,6 +65,14 @@ public class Vida : MonoBehaviour
             
         }
 
+        if (collision.gameObject.tag == "Oscuridad")
+        {
+            vida = vida - 20;
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D collision) // agregue esta linea de codigo para que cuando sigas colisionando con la oscuridad se te reste vida.
+    {
         if (collision.gameObject.tag == "Oscuridad")
         {
             vida = vida - 20;

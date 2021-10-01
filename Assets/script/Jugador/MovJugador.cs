@@ -15,7 +15,10 @@ public class MovJugador : MonoBehaviour
     [Header("referencias a objetos")]
     [SerializeField] private Rigidbody2D rb2D;
     [SerializeField] private SpriteRenderer spriteR;
-
+    //esta variables hacen referencia a los objetos en el que se van a posicionar unos raycast´s.
+    [SerializeField] private GameObject objetoRaycast1;
+    [SerializeField] private GameObject objetoRaycast2;
+    [SerializeField] private GameObject objetoRaycast3;
     [Space]
 
     [Header("velocidad")]
@@ -23,7 +26,9 @@ public class MovJugador : MonoBehaviour
     [SerializeField] private float velSalto;
 
     private bool estaEnElPiso;
-    private RaycastHit2D rayitoPies;
+    private RaycastHit2D rayitoPies1;
+    private RaycastHit2D rayitoPies2;
+    private RaycastHit2D rayitoPies3;
     [SerializeField]private LayerMask capaDelPiso;
     [SerializeField] Animator anim;
 
@@ -40,7 +45,9 @@ public class MovJugador : MonoBehaviour
     private void FixedUpdate()
     {
         Mov();
-        Debug.DrawRay(transform.position, Vector3.down.normalized*2, Color.red);
+        Debug.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized*0.5f, Color.red);
+        Debug.DrawRay(objetoRaycast2.transform.position, Vector3.down.normalized * 0.5f, Color.blue);
+        Debug.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * 0.5f, Color.green);
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
@@ -58,8 +65,9 @@ public class MovJugador : MonoBehaviour
     {
         
 
-        rayitoPies = Physics2D.Raycast(this.transform.position, Vector2.down, 2f, capaDelPiso);
-
+        rayitoPies1 = Physics2D.Raycast(objetoRaycast1.transform.position, Vector2.down, 0.5f, capaDelPiso);
+        rayitoPies2 = Physics2D.Raycast(objetoRaycast2.transform.position, Vector2.down, 0.5f, capaDelPiso);
+        rayitoPies3 = Physics2D.Raycast(objetoRaycast3.transform.position, Vector2.down, 0.5f, capaDelPiso);
         if (Input.GetKey(teclaIzq))
         {
             anim.SetBool("caminar", true);
@@ -94,16 +102,36 @@ public class MovJugador : MonoBehaviour
             anim.SetBool("caminar", false);
         }
 
-        if (rayitoPies==true)
+        if (rayitoPies1==true)
         {
+            //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
             estaEnElPiso = true;
             anim.SetBool("saltar", false);
         }
         else
         {
-            estaEnElPiso = false;
+            if (rayitoPies2==true)
+            {
+                //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
+                estaEnElPiso = true;
+                anim.SetBool("saltar", false);
+            }
+            else
+            {
+                if (rayitoPies3==true)
+                {
+                    //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
+                    estaEnElPiso = true;
+                    anim.SetBool("saltar", false);
+                }
+                else
+                {
+                    //Debug.Log("no colisione con el piso"); //esto era para probar que no colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando no colisiona con algo dentro de la LayerMask "Pisos del nivel"
+                    estaEnElPiso = false;
+                }
+            }
         }
-
+        
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
             anim.SetBool("saltar", true);

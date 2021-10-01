@@ -27,6 +27,15 @@ public class MovOscuridad : MonoBehaviour
         {
             rb2D.MovePosition(new Vector2(transform.position.x + velOscuridad * Time.fixedDeltaTime, transform.position.y));
         }
+        else
+        {
+            Invoke("DesactivarOscuridad", 5f);
+        }
+    }
+
+    private void DesactivarOscuridad()
+    {
+        gameObject.SetActive(false);
     }
 
 }

@@ -1,5 +1,95 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &174476781
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 174476782}
+  m_Layer: 0
+  m_Name: Raycast Pies 3
+  m_TagString: Untagged
+  m_Icon: {fileID: 3306451490063965843, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &174476782
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 174476781}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.045, y: -0.466, z: -50.438484}
+  m_LocalScale: {x: 0.24730092, y: 0.2517771, z: 0.2517771}
+  m_Children: []
+  m_Father: {fileID: 6252415834323729871}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &656980421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 656980422}
+  m_Layer: 0
+  m_Name: Raycast Pies 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 4422084297763085224, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &656980422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 656980421}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.089, y: -0.4657877, z: -50.438484}
+  m_LocalScale: {x: 0.24730092, y: 0.2517771, z: 0.2517771}
+  m_Children: []
+  m_Father: {fileID: 6252415834323729871}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1211031697
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1211031698}
+  m_Layer: 0
+  m_Name: Raycast Pies 1
+  m_TagString: Untagged
+  m_Icon: {fileID: -5442936267250999957, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1211031698
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1211031697}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.151, y: -0.4657877, z: -50.131657}
+  m_LocalScale: {x: 0.24730092, y: 0.2517771, z: 0.2517771}
+  m_Children: []
+  m_Father: {fileID: 6252415834323729871}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6252415834323729874
 GameObject:
   m_ObjectHideFlags: 0
@@ -35,6 +125,9 @@ Transform:
   m_LocalScale: {x: 4.0436563, y: 3.971767, z: 3.971767}
   m_Children:
   - {fileID: 6252415835264111467}
+  - {fileID: 1211031698}
+  - {fileID: 656980422}
+  - {fileID: 174476782}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -179,10 +272,16 @@ MonoBehaviour:
   teclaArr: 119
   teclaAbajo: 115
   rb2D: {fileID: 6252415834323729873}
-  spriteR: {fileID: 0}
+  spriteR: {fileID: 6252415834323729870}
+  objetoRaycast1: {fileID: 1211031697}
+  objetoRaycast2: {fileID: 656980421}
+  objetoRaycast3: {fileID: 174476781}
   velMov: 6.2
   velSalto: 10.5
-  anim: {fileID: 0}
+  capaDelPiso:
+    serializedVersion: 2
+    m_Bits: 64
+  anim: {fileID: 2393662204019875710}
 --- !u!114 &7715920651435339736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21a752ba287159e45ad43d2e71e8205f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vida: 1
+  vida: 100
   barraVida: {fileID: 0}
   anim: {fileID: 2393662204019875710}
 --- !u!95 &2393662204019875710
