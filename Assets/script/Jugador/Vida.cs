@@ -45,7 +45,7 @@ public class Vida : MonoBehaviour
 
             if ( tiempo > 2f)
             {
-                SceneManager.LoadScene("Nivel 1(fase 1)");
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 0);
             }
 
             
