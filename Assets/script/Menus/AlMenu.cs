@@ -5,19 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class AlMenu : MonoBehaviour
 {
-    // Start is called before the first frame update
+    [SerializeField] GameObject Panel;
+    bool pausa;
+    [SerializeField] KeyCode Pausa;
     void Start()
     {
-        
+        Time.timeScale = 1f;
+        Panel.SetActive(false);
+        pausa = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(Pausa))
+        {
 
+
+            if (pausa == false)
+            {
+
+                Panel.SetActive(true);
+                Time.timeScale = 0f;
+                pausa = true;
+
+            }
+
+            else
+            {
+
+                Panel.SetActive(false);
+                Time.timeScale = 1f;
+                pausa = false;
+
+            }
+        }
     }
-    public void Menu()
+    public void IrAlMenu()
     {
         SceneManager.LoadScene("MenuInicio");
     }
