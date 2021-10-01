@@ -12,14 +12,18 @@ public class PrimerBoss : MonoBehaviour
     [SerializeField] float velSalto;
     [SerializeField] GameObject EsfIz;
     [SerializeField] GameObject EsfDer;
+    [SerializeField] GameObject camara;
 
     [SerializeField] Slider barraVidaBoss;
+    [SerializeField] GameObject barraVidaBossG;
     SpriteRenderer spriteB;
     bool iz;
     bool der;
     float time1;
     float time2;
     bool terceraFase;
+
+    [SerializeField] Animator anim;
 
     void Start()
     {
@@ -55,7 +59,7 @@ public class PrimerBoss : MonoBehaviour
             SegundaFase();
         }
 
-        if (vida <= 40)
+        if (vida <= 40 && vida > 3)
         {
             TerceraFase();
             terceraFase = true;
@@ -70,16 +74,19 @@ public class PrimerBoss : MonoBehaviour
             if (der == true)
             {
                 rb2D.velocity = new Vector2(velAt, rb2D.velocity.y);
+                anim.SetBool("Walk", true);
             }
 
             if (iz == true)
             {
                 rb2D.velocity = new Vector2(-velAt, rb2D.velocity.y);
+                anim.SetBool("Walk", true);
             }
         }
         else
         {
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+            anim.SetBool("Walk", false);
         }
 
         if (time1 > 1f)
@@ -97,12 +104,14 @@ public class PrimerBoss : MonoBehaviour
             {
                 rb2D.velocity = new Vector2(velAt, rb2D.velocity.y);
                 rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+                anim.SetBool("Jump", true);
             }
 
             if (iz == true)
             {
                 rb2D.velocity = new Vector2(-velAt, rb2D.velocity.y);
                 rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+                anim.SetBool("Jump", true);
             }
         }
         else
@@ -121,25 +130,25 @@ public class PrimerBoss : MonoBehaviour
         if (transform.position.x < -1)
         {
             rb2D.velocity = new Vector2(velAt, rb2D.velocity.y);
+            anim.SetBool("Walk", true);
         }
-        else
-        {
-            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
-        }
+        
         if (transform.position.x > 1)
         {
             rb2D.velocity = new Vector2(-velAt, rb2D.velocity.y);
+            anim.SetBool("Walk", true);
         }
-        else{
-            rb2D.velocity = new Vector2(0, rb2D.velocity.y);
-        }
+        
 
         if (transform.position.x < 1 && transform.position.x >-1)
         {
             time2 += Time.deltaTime;
             if(time2 < 0.5f)
             {
+                rb2D.velocity = new Vector2(0, rb2D.velocity.y);
+                anim.SetBool("Walk", false);
                 rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+                anim.SetBool("Jump", true);
             }
             
 
@@ -163,8 +172,11 @@ public class PrimerBoss : MonoBehaviour
             vida = vida - 1;
             if (vida <= 0)
             {
+                anim.SetBool("Dead", true);
+                camara.SetActive(true);
+                barraVidaBossG.SetActive(false);
                 Destroy(gameObject, 1f);
-                Destroy(barraVidaBoss, 1f);
+                
             }
         }
 
@@ -189,6 +201,7 @@ public class PrimerBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "piso")
         {
+            anim.SetBool("Jump", false);
             if (terceraFase == true)
             {
 
