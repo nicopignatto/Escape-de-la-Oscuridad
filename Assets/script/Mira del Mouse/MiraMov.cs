@@ -12,8 +12,8 @@ public class MiraMov : MonoBehaviour
 
     void Update()
     {
-        Vector2 MousePo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector2(MousePo.x, MousePo.y);
+        Vector3 MousePo = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        transform.position = new Vector3(MousePo.x, MousePo.y, -2);
         ActivarCursor();
         DesactivarCursor();
     }
