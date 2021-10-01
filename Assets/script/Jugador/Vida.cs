@@ -8,15 +8,20 @@ using UnityEngine.SceneManagement;
 public class Vida : MonoBehaviour
 {
     
-    [SerializeField] private float vida = 1f;
-    public Image barraVida;
+    [SerializeField] private int vida = 8;
+    public Slider barraVida;
     [SerializeField] Animator anim;
     float tiempo = 0;
     Rigidbody2D rb2D;
+
+    Scene escenaAct;
+    
     
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
+        escenaAct = SceneManager.GetActiveScene();
+        
         
     }
 
@@ -40,7 +45,7 @@ public class Vida : MonoBehaviour
 
             if ( tiempo > 2f)
             {
-                    SceneManager.LoadScene("Nivel 1");
+                SceneManager.LoadScene("Nivel 1(fase 1)");
             }
 
             
@@ -49,14 +54,14 @@ public class Vida : MonoBehaviour
 
     void BarraVida()
     {
-        barraVida.fillAmount = vida;
+        barraVida.value = vida;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            vida = vida - 0.15f;
+            vida = vida - 1;
             
         }
 
