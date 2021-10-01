@@ -15,6 +15,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Nivel 1/Nivel 1(fase 1).unity
     guid: 466916fe3244cdb4fb8d0bc22af67313
   - enabled: 1
+    path: Assets/Scenes/Nivel 1/Nivel 1(fase 2).unity
+    guid: 86512adf453468745961d8214359d2ba
+  - enabled: 1
+    path: Assets/Scenes/Nivel 1/Nivel 1(fase 3).unity
+    guid: 527a1d97c13145a48bbc6b7ad1e0301a
+  - enabled: 1
     path: Assets/Scenes/Nivel 2/Nivel 2(fase 1).unity
     guid: e93baa7b8da177a498a6fcc6c3174ce1
   - enabled: 1
