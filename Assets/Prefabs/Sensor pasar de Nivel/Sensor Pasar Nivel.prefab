@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pasasteElNivel: 0
-  indiceEscena: 3
+  indiceEscenaActual: 0
   nombreEscena: 
   jugador: {fileID: 0}
 --- !u!212 &8294396883049708949
@@ -91,7 +91,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_Sprite: {fileID: 7482667652216324306, guid: 48e93eef0688c4a259cb0eddcd8661f7, type: 3}
-  m_Color: {r: 0.15686274, g: 0.8980392, b: 0.6788402, a: 0.62352943}
+  m_Color: {r: 0.15686274, g: 0.8980392, b: 0.6788402, a: 0.20392157}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
