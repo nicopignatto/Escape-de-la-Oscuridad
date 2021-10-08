@@ -73,9 +73,10 @@ public class MovJugador : MonoBehaviour
             anim.SetBool("caminar", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
             spriteR.flipX = true;
-            //transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            //transform.eulerAngles = new Vector3(0f, 180f, 0f);
             //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             //transform.rotation = rotacionPersonaje;
+            //transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
         }
         else
         {
@@ -84,9 +85,10 @@ public class MovJugador : MonoBehaviour
                 anim.SetBool("caminar", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
                 spriteR.flipX = false;
-                //transform.eulerAngles = new Vector3(0f, 180f, 0f);
+                //transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 //transform.rotation = rotacionPersonaje;
+                //transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
             }
             else
             {
