@@ -2,12 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Audio;
 
 public class AlMenu : MonoBehaviour
 {
+    [Header("Linkeos")]
+    [SerializeField] private AudioSource repMusicaNivel;
     [SerializeField] GameObject Panel;
-    bool pausa;
     [SerializeField] KeyCode Pausa;
+    private bool pausa;
     void Start()
     {
         Time.timeScale = 1f;
@@ -27,6 +30,7 @@ public class AlMenu : MonoBehaviour
                 Panel.SetActive(true);
                 Time.timeScale = 0f;
                 pausa = true;
+                repMusicaNivel.volume = 0.15f;
 
             }
 
@@ -36,6 +40,7 @@ public class AlMenu : MonoBehaviour
                 Panel.SetActive(false);
                 Time.timeScale = 1f;
                 pausa = false;
+                repMusicaNivel.volume = 0.5f;
 
             }
         }

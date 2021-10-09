@@ -25,7 +25,8 @@ public class MovJugador : MonoBehaviour
     [SerializeField] private float velMov;
     [SerializeField] private float velSalto;
 
-    private bool estaEnElPiso;
+    private bool estaEnElPiso;//este booleano determina si el jugador esta tocando el piso.
+    private bool podesGirar;//este booleano determina si el jugador puede rotar para el lado en que se mueve.
     private RaycastHit2D rayitoPies1;
     private RaycastHit2D rayitoPies2;
     private RaycastHit2D rayitoPies3;
@@ -59,7 +60,6 @@ public class MovJugador : MonoBehaviour
             anim.SetBool("saltar", false);
         }
     }*/
-    
 
     private void Mov()
     {
@@ -70,25 +70,32 @@ public class MovJugador : MonoBehaviour
         rayitoPies3 = Physics2D.Raycast(objetoRaycast3.transform.position, Vector2.down, 0.5f, capaDelPiso);
         if (Input.GetKey(teclaIzq))
         {
+            //float rotacionY = 180f;
             anim.SetBool("caminar", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            spriteR.flipX = true;
+            //spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
             //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             //transform.rotation = rotacionPersonaje;
             //transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
+            //transform.rotation = Quaternion.AngleAxis(rotacionY, transform.up);
+            transform.localScale = new Vector3(-4.043656f, transform.localScale.y, transform.localScale.z);//esto es provisorio pero por lo menos arregla lo del sprite corrido y ahora se puede mover el PJ como debe;igual habria que investigar mejores opciones de rotacion con fisicas 2D sobre el eje Y.
         }
         else
         {
             if (Input.GetKey(teclaDer))
             {
+                //float rotacionY = 0f;
                 anim.SetBool("caminar", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                spriteR.flipX = false;
+                //spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 //transform.rotation = rotacionPersonaje;
                 //transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
+                //transform.rotation = Quaternion.AngleAxis(rotacionY, transform.up);
+                transform.localScale = new Vector3(4.043656f, transform.localScale.y, transform.localScale.z);
+
             }
             else
             {
@@ -144,5 +151,7 @@ public class MovJugador : MonoBehaviour
         
        
     }
+
+    
 
 }
