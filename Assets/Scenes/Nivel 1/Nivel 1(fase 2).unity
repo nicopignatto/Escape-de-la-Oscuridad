@@ -20133,6 +20133,10 @@ PrefabInstance:
       propertyPath: indiceEscenaActual
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 8294396883049708949, guid: 0e12a77b722b4624c98c567b27c0e6e0, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8294396883049708951, guid: 0e12a77b722b4624c98c567b27c0e6e0, type: 3}
       propertyPath: m_Name
       value: Sensor Pasar Nivel
