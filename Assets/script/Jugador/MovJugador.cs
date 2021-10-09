@@ -73,7 +73,7 @@ public class MovJugador : MonoBehaviour
             //float rotacionY = 180f;
             anim.SetBool("caminar", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            spriteR.flipX = true;
+            spriteR.flipX = false;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
             //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             //transform.rotation = rotacionPersonaje;
@@ -88,7 +88,7 @@ public class MovJugador : MonoBehaviour
                 //float rotacionY = 0f;
                 anim.SetBool("caminar", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                spriteR.flipX = false;
+                spriteR.flipX = true;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 //transform.rotation = rotacionPersonaje;

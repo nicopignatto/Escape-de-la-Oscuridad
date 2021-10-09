@@ -29,7 +29,7 @@ public class MovOscuridad : MonoBehaviour
         }
         else
         {
-            Invoke("DesactivarOscuridad", 5f);
+            Invoke("DesactivarOscuridad", 3.5f);
         }
     }
 
