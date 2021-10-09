@@ -73,13 +73,13 @@ public class MovJugador : MonoBehaviour
             //float rotacionY = 180f;
             anim.SetBool("caminar", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            //spriteR.flipX = true;
+            spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
             //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             //transform.rotation = rotacionPersonaje;
             //transform.rotation = new Quaternion(0f, 180f, 0f, 0f);
             //transform.rotation = Quaternion.AngleAxis(rotacionY, transform.up);
-            transform.localScale = new Vector3(-4.043656f, transform.localScale.y, transform.localScale.z);//esto es provisorio pero por lo menos arregla lo del sprite corrido y ahora se puede mover el PJ como debe;igual habria que investigar mejores opciones de rotacion con fisicas 2D sobre el eje Y.
+            //correccion sigue jodiendo el tema del sprite corrido//transform.localScale = new Vector3(-4.043656f, transform.localScale.y, transform.localScale.z);//esto es provisorio pero por lo menos arregla lo del sprite corrido y ahora se puede mover el PJ como debe;igual habria que investigar mejores opciones de rotacion con fisicas 2D sobre el eje Y.
         }
         else
         {
@@ -88,13 +88,13 @@ public class MovJugador : MonoBehaviour
                 //float rotacionY = 0f;
                 anim.SetBool("caminar", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                //spriteR.flipX = false;
+                spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 //transform.rotation = rotacionPersonaje;
                 //transform.rotation = new Quaternion(0f, 0f, 0f, 0f);
                 //transform.rotation = Quaternion.AngleAxis(rotacionY, transform.up);
-                transform.localScale = new Vector3(4.043656f, transform.localScale.y, transform.localScale.z);
+                //no sirve por que sigue jodiendo el tema del sprite corrido//transform.localScale = new Vector3(4.043656f, transform.localScale.y, transform.localScale.z);
 
             }
             else

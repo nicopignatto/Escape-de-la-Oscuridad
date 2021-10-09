@@ -23845,6 +23845,14 @@ PrefabInstance:
       propertyPath: capaDelPiso.m_Bits
       value: 64
       objectReference: {fileID: 0}
+    - target: {fileID: 6252415834323729870, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: m_FlipX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6252415834323729870, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
+      propertyPath: m_FlipY
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6252415834323729871, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -78693,7 +78701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342855053086294297, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
       propertyPath: velOscuridad
-      value: 0.55
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4342855053086294297, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
       propertyPath: limiteDerecho
@@ -78705,7 +78713,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4342855053086294300, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -38.8
+      value: -60.6
       objectReference: {fileID: 0}
     - target: {fileID: 4342855053086294300, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
       propertyPath: m_LocalPosition.y
