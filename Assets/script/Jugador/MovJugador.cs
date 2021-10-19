@@ -99,23 +99,23 @@ public class MovJugador : MonoBehaviour
             }
             else
             {
-                anim.SetBool("caminar", false);
+               // anim.SetBool("caminar", false);
                 rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             }
 
         }
 
-        if (estaEnElPiso == false)
+        /*if (estaEnElPiso == false)
         {
             
             anim.SetBool("caminar", false);
-        }
+        }*/
 
         if (rayitoPies1==true)
         {
             //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
             estaEnElPiso = true;
-            anim.SetBool("saltar", false);
+            //anim.SetBool("saltar", false);
         }
         else
         {
@@ -123,7 +123,7 @@ public class MovJugador : MonoBehaviour
             {
                 //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                 estaEnElPiso = true;
-                anim.SetBool("saltar", false);
+                //anim.SetBool("saltar", false);
             }
             else
             {
@@ -131,7 +131,7 @@ public class MovJugador : MonoBehaviour
                 {
                     //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                     estaEnElPiso = true;
-                    anim.SetBool("saltar", false);
+                    //anim.SetBool("saltar", false);
                 }
                 else
                 {
@@ -143,7 +143,7 @@ public class MovJugador : MonoBehaviour
         
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
-            anim.SetBool("saltar", true);
+            //anim.SetBool("saltar", true);
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
             
