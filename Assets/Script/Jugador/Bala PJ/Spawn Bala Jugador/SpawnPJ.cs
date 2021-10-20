@@ -21,6 +21,8 @@ public class SpawnPJ : MonoBehaviour
         {
             if (shootCooldownActual <= 0) 
             {
+                FindObjectOfType<AudioManager>().Play("flechaDisparo");
+
                 shootCooldownActual = shootCooldown;
                 Instantiate(balita, transform.position, Quaternion.identity);
             }

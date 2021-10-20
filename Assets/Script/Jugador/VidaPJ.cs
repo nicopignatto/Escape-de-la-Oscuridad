@@ -37,7 +37,9 @@ public class VidaPJ : MonoBehaviour
     {
         if (vida <= 0)
         {
-            anim.SetBool("muerto",true);
+            FindObjectOfType<AudioManager>().Play("enemigoMuerte");
+
+            //anim.SetBool("muerto",true);
             Debug.Log("Haz Muerto");
             Destroy(rb2D);
 
@@ -62,7 +64,9 @@ public class VidaPJ : MonoBehaviour
         if (collision.gameObject.tag == "Enemy")
         {
             vida = vida - 1;
-            
+            FindObjectOfType<AudioManager>().Play("playerHit");
+
+
         }
 
         if (collision.gameObject.tag == "Oscuridad")

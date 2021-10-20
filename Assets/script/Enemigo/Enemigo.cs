@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Enemigo : MonoBehaviour
 {
-    int vida = 3; 
+    int vida = 3;
     private float tiempo;
     private float tiempoC;
     private GameObject jugador;
@@ -15,7 +15,7 @@ public class Enemigo : MonoBehaviour
     [SerializeField] bool movAtaque;
     [SerializeField] float distanciaAtaque;
     [SerializeField] float distanciaGolpeo;
-    
+
 
     [SerializeField] private Rigidbody2D rb2D;
 
@@ -26,11 +26,16 @@ public class Enemigo : MonoBehaviour
 
     private Quaternion rotacionPersonaje;
 
+    //esta variable determina si el enemigo esta muerto, se usa para reproducir sonido de muerte
+    private bool enemigoDead;
+    [SerializeField] AudioSource repMuerte;
+
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.Find("Jugador");
         movAtaque = false;
+        enemigoDead = false;
         
     }
 
@@ -52,30 +57,56 @@ public class Enemigo : MonoBehaviour
         if (movAtaque == true)
         {
             MovAtaque();
-        }
-   
+        }                      
 
-        if (vida <= 0)
+        Atacar();
+
+
+        if (vida == 0)
         {
+            enemigoDead = true;
+
+            FindObjectOfType<AudioManager>().Play("enemigoMuerte");
+
+            //repMuerte.Play();
+            
             movAtaque = false;
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             lanza.SetActive(false);
             anim.SetBool("muerte", true);
-            Destroy(this.gameObject, 1);
+
+            Invoke("DesactivarObj", 1);
+            //Destroy(this.gameObject,1);
+            enemigoDead = false;
+            vida = -1;
+
+            //vida = 2;
+
+            //if (enemigoDead == true)
+            //{
+
+
+            //}
+
+
         }
 
-        Atacar();
     }
+
+
    
+
     void Atacar()
     {
         if (Vector3.Distance(jugador.transform.position, transform.position) < distanciaGolpeo)
         {
+
             Cooldown();
             movAtaque = false;
             rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             anim.SetBool("atacando", true);
             anim.SetBool("caminando", false);
+
         }
         else
         {
@@ -136,6 +167,9 @@ public class Enemigo : MonoBehaviour
     {
         if(collision.gameObject.tag == "Bala")
         {
+            //play sound arrow hit y enemigo hit
+            FindObjectOfType<AudioManager>().Play("enemigoHit");
+
             vida = vida - 1;
             movAtaque = true;
         }
@@ -154,6 +188,7 @@ public class Enemigo : MonoBehaviour
         if (tiempoC > 0.5)
         {
             lanza.transform.localScale = new Vector3(1, 1, 1);
+
         }
 
         if (tiempoC > 1)
@@ -180,5 +215,10 @@ public class Enemigo : MonoBehaviour
             }
             tiempo = 0;
         }
+    }
+
+    private void DesactivarObj()
+    {
+        gameObject.SetActive(false);
     }
 }

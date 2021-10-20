@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 6332769178702325107}
   m_Layer: 0
   m_Name: Enemigo (1)
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -105,9 +105,10 @@ MonoBehaviour:
   movHorizontal: 0
   movAtaque: 0
   distanciaAtaque: 6
-  distanciaGolpeo: 2
+  distanciaGolpeo: 1.7
   rb2D: {fileID: 1892197956287396564}
   velMov: 3
+  repMuerte: {fileID: 0}
 --- !u!50 &1892197956287396564
 Rigidbody2D:
   serializedVersion: 4

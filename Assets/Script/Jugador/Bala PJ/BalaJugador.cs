@@ -15,6 +15,7 @@ public class BalaJugador : MonoBehaviour
     Vector3 direccFlechas;
     Vector3 direccObjetivo;
     float anguloRotacionFlechas;
+
     void Start()
     {
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -51,6 +52,9 @@ public class BalaJugador : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "piso")
         {
+            FindObjectOfType<AudioManager>().Play("flechaHit");
+
+            Debug.Log("hit de bala en enemy o piso");
             Destroy(gameObject, 0.05f);
         }
     }
