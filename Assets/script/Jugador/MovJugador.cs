@@ -73,6 +73,7 @@ public class MovJugador : MonoBehaviour
             //float rotacionY = 180f;
             //anim.SetBool("caminar", true);
             animPJ.SetBool("PJ camina", true);
+            animPJ.SetBool("esta en el piso", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
             spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
@@ -89,6 +90,7 @@ public class MovJugador : MonoBehaviour
                 //float rotacionY = 0f;
                 //anim.SetBool("caminar", true);
                 animPJ.SetBool("PJ camina", true);
+                animPJ.SetBool("esta en el piso", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
                 spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -103,6 +105,7 @@ public class MovJugador : MonoBehaviour
             {
                 // anim.SetBool("caminar", false);
                 animPJ.SetBool("PJ camina", false);
+                animPJ.SetBool("esta en el piso", true);
                 rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             }
 
