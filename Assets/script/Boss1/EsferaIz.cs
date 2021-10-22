@@ -9,6 +9,9 @@ public class EsferaIz : MonoBehaviour
     [SerializeField] float velAt;
     void Start()
     {
+        //reproducir bola se dispara
+        FindObjectOfType<AudioManager>().Play("bossShot");
+
         rb2D = GetComponent<Rigidbody2D>();
         
     }
@@ -23,6 +26,9 @@ public class EsferaIz : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "piso")
         {
+            //reproducir bola colisiona
+            FindObjectOfType<AudioManager>().Play("ballHit");
+
             Destroy(gameObject);
         }
     }

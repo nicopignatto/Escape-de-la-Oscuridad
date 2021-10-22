@@ -50,11 +50,19 @@ public class BalaJugador : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy" || collision.gameObject.tag == "piso")
+        if (collision.gameObject.tag == "Enemy" )
         {
             FindObjectOfType<AudioManager>().Play("flechaHit");
 
-            Debug.Log("hit de bala en enemy o piso");
+            Debug.Log("hit de bala en enemy");
+            Destroy(gameObject, 0.05f);
+        }
+
+        if (collision.gameObject.tag == "piso")
+        {
+            FindObjectOfType<AudioManager>().Play("flechaHit");
+
+            Debug.Log("hit de bala en piso");
             Destroy(gameObject, 0.05f);
         }
     }

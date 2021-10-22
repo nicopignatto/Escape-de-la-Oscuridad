@@ -35,13 +35,13 @@ public class VidaPJ : MonoBehaviour
     
     void Morir()
     {
+
         if (vida <= 0)
         {
-            FindObjectOfType<AudioManager>().Play("enemigoMuerte");
 
             //anim.SetBool("muerto",true);
             Debug.Log("Haz Muerto");
-            Destroy(rb2D);
+            //Destroy(rb2D);
 
             tiempo += Time.deltaTime;
 
@@ -66,12 +66,16 @@ public class VidaPJ : MonoBehaviour
             vida = vida - 1;
             FindObjectOfType<AudioManager>().Play("playerHit");
 
-
         }
 
         if (collision.gameObject.tag == "Oscuridad")
         {
             vida = vida - 20;
+            FindObjectOfType<AudioManager>().Play("playerDead");
+            Debug.Log("player colisiona con oscuridad");
+            Destroy(rb2D);
+
+
         }
     }
 

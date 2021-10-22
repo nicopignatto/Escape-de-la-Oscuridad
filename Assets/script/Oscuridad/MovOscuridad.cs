@@ -13,14 +13,12 @@ public class MovOscuridad : MonoBehaviour
 
     [Header("Linkeos de objetos")]
     [SerializeField] private GameObject jugador;
-    [SerializeField] private AudioSource sonidoOscuridad;
 
     private Rigidbody2D rb2D;
 
     private void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        sonidoOscuridad.volume = 0.1f;
     }
 
     private void Update()

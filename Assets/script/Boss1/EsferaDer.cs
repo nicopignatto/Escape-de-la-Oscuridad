@@ -10,7 +10,11 @@ public class EsferaDer : MonoBehaviour
     void Start()
     {
         rb2D = GetComponent<Rigidbody2D>();
-        
+        //reproducir bola se dispara
+
+        FindObjectOfType<AudioManager>().Play("bossShot");
+
+
     }
 
     // Update is called once per frame
@@ -24,6 +28,10 @@ public class EsferaDer : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "piso")
         {
+            //reproducir bola colisiona
+
+            FindObjectOfType<AudioManager>().Play("ballHit");
+
             Destroy(gameObject);
         }
     }

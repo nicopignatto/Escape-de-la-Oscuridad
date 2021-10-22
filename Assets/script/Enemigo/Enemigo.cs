@@ -53,6 +53,8 @@ public class Enemigo : MonoBehaviour
         {
             movAtaque = true;
             lanza.transform.localScale = new Vector3(0, 1, 1);
+
+
         }
         if (movAtaque == true)
         {
@@ -75,7 +77,7 @@ public class Enemigo : MonoBehaviour
             lanza.SetActive(false);
             anim.SetBool("muerte", true);
 
-            Invoke("DesactivarObj", 1);
+            Invoke("DesactivarObj", .5f);
             //Destroy(this.gameObject,1);
             enemigoDead = false;
             vida = -1;
@@ -119,6 +121,7 @@ public class Enemigo : MonoBehaviour
         
         
             anim.SetBool("caminando", true);
+
             
             if (transform.position.x > jugador.transform.position.x)
             {

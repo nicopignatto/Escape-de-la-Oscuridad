@@ -1,0 +1,118 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8135584740105251803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8135584740105251801}
+  - component: {fileID: 8135584740105251800}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8135584740105251801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135584740105251803}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.5673368, y: -1.3326313, z: -20.302502}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8135584740105251800
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8135584740105251803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 585bd490c2ab68f44b8de45effff4abf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sounds:
+  - name: flechaDisparo
+    clip: {fileID: 8300000, guid: d0ab44892dec05a48af2d5b9ead5b737, type: 3}
+    output: {fileID: 0}
+    volume: 0.5
+    pitch: 1.1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: enemigoMuerte
+    clip: {fileID: 8300000, guid: b67ade65ae577934fa6aabbc79f9397b, type: 3}
+    output: {fileID: 0}
+    volume: 0.5
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: enemigoHit
+    clip: {fileID: 8300000, guid: d3deacfc6b6907d48b76659e5411c8a7, type: 3}
+    output: {fileID: 0}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: flechaHit
+    clip: {fileID: 8300000, guid: c76288c7357ee2443abfda21924af25c, type: 3}
+    output: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: playerHit
+    clip: {fileID: 8300000, guid: e5c63f43d5961824a9194884010725be, type: 3}
+    output: {fileID: 0}
+    volume: 0.6
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: playerDead
+    clip: {fileID: 8300000, guid: 96d632a636db25e4d9eb9cddf462f17c, type: 3}
+    output: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: pip
+    clip: {fileID: 8300000, guid: 134133c21450a4d44b355e16376c0c95, type: 3}
+    output: {fileID: 0}
+    volume: 0.4
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: bossShot
+    clip: {fileID: 8300000, guid: 223d40ff6735b6b4caf1c0d928103602, type: 3}
+    output: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}
+  - name: ballHit
+    clip: {fileID: 8300000, guid: b038e29f53a7d7f4cb75c61fe902af4a, type: 3}
+    output: {fileID: 0}
+    volume: 0.3
+    pitch: 1
+    loop: 0
+    mute: 0
+    source: {fileID: 0}

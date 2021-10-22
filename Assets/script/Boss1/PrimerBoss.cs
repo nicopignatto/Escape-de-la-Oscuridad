@@ -169,9 +169,13 @@ public class PrimerBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bala")
         {
+            //reproducir daño a enemigo
+            FindObjectOfType<AudioManager>().Play("bossHit");
+
             vida = vida - 1;
             if (vida <= 0)
             {
+
                 anim.SetBool("Dead", true);
                 camara.SetActive(true);
                 barraVidaBossG.SetActive(false);
@@ -201,6 +205,9 @@ public class PrimerBoss : MonoBehaviour
     {
         if (collision.gameObject.tag == "piso")
         {
+            //reproducir sonido de enemigo toca piso
+            FindObjectOfType<AudioManager>().Play("bossJump");
+
             anim.SetBool("Jump", false);
             if (terceraFase == true)
             {
