@@ -31,7 +31,7 @@ public class MovJugador : MonoBehaviour
     private RaycastHit2D rayitoPies2;
     private RaycastHit2D rayitoPies3;
     [SerializeField]private LayerMask capaDelPiso;
-    [SerializeField] Animator anim;
+    [SerializeField] Animator animPJ;
 
     private Quaternion rotacionPersonaje;
 
@@ -71,9 +71,10 @@ public class MovJugador : MonoBehaviour
         if (Input.GetKey(teclaIzq))
         {
             //float rotacionY = 180f;
-            anim.SetBool("caminar", true);
+            //anim.SetBool("caminar", true);
+            animPJ.SetBool("PJ camina", true);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
-            spriteR.flipX = false;
+            spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
             //rotacionPersonaje = Quaternion.Euler(0f, 180f, 0f);
             //transform.rotation = rotacionPersonaje;
@@ -86,9 +87,10 @@ public class MovJugador : MonoBehaviour
             if (Input.GetKey(teclaDer))
             {
                 //float rotacionY = 0f;
-                anim.SetBool("caminar", true);
+                //anim.SetBool("caminar", true);
+                animPJ.SetBool("PJ camina", true);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
-                spriteR.flipX = true;
+                spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
                 //rotacionPersonaje = Quaternion.Euler(0f, 0f, 0f);
                 //transform.rotation = rotacionPersonaje;
@@ -99,7 +101,8 @@ public class MovJugador : MonoBehaviour
             }
             else
             {
-               // anim.SetBool("caminar", false);
+                // anim.SetBool("caminar", false);
+                animPJ.SetBool("PJ camina", false);
                 rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             }
 
@@ -116,6 +119,8 @@ public class MovJugador : MonoBehaviour
             //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
             estaEnElPiso = true;
             //anim.SetBool("saltar", false);
+            animPJ.SetBool("esta en el piso", true);
+
         }
         else
         {
@@ -124,6 +129,9 @@ public class MovJugador : MonoBehaviour
                 //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                 estaEnElPiso = true;
                 //anim.SetBool("saltar", false);
+                animPJ.SetBool("esta en el piso", true);
+
+
             }
             else
             {
@@ -132,6 +140,9 @@ public class MovJugador : MonoBehaviour
                     //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                     estaEnElPiso = true;
                     //anim.SetBool("saltar", false);
+                    animPJ.SetBool("esta en el piso", true);
+
+
                 }
                 else
                 {
@@ -144,6 +155,7 @@ public class MovJugador : MonoBehaviour
         if (Input.GetKey(teclaArr) && estaEnElPiso == true)
         {
             //anim.SetBool("saltar", true);
+            animPJ.SetBool("esta en el piso", false);
             rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
             estaEnElPiso = false;
             
