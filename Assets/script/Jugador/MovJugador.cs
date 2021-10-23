@@ -33,6 +33,9 @@ public class MovJugador : MonoBehaviour
     [SerializeField]private LayerMask capaDelPiso;
     [SerializeField] Animator animPJ;
 
+    [Header("Medida de los Raycast Pies 1,2 y 3")]
+    [SerializeField] private float medidaRaycast2D;
+
     private Quaternion rotacionPersonaje;
 
     private void Start()
@@ -46,9 +49,9 @@ public class MovJugador : MonoBehaviour
     private void FixedUpdate()
     {
         Mov();
-        Debug.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized*0.5f, Color.red);
-        Debug.DrawRay(objetoRaycast2.transform.position, Vector3.down.normalized * 0.5f, Color.blue);
-        Debug.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * 0.5f, Color.green);
+        Debug.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized*medidaRaycast2D, Color.red);
+        Debug.DrawRay(objetoRaycast2.transform.position, Vector3.down.normalized * medidaRaycast2D, Color.blue);
+        Debug.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * medidaRaycast2D, Color.green);
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
@@ -65,15 +68,16 @@ public class MovJugador : MonoBehaviour
     {
         
 
-        rayitoPies1 = Physics2D.Raycast(objetoRaycast1.transform.position, Vector2.down, 0.5f, capaDelPiso);
-        rayitoPies2 = Physics2D.Raycast(objetoRaycast2.transform.position, Vector2.down, 0.5f, capaDelPiso);
-        rayitoPies3 = Physics2D.Raycast(objetoRaycast3.transform.position, Vector2.down, 0.5f, capaDelPiso);
+        rayitoPies1 = Physics2D.Raycast(objetoRaycast1.transform.position, Vector2.down, medidaRaycast2D, capaDelPiso);
+        rayitoPies2 = Physics2D.Raycast(objetoRaycast2.transform.position, Vector2.down,medidaRaycast2D, capaDelPiso);
+        rayitoPies3 = Physics2D.Raycast(objetoRaycast3.transform.position, Vector2.down, medidaRaycast2D, capaDelPiso);
         if (Input.GetKey(teclaIzq))
         {
             //float rotacionY = 180f;
             //anim.SetBool("caminar", true);
             animPJ.SetBool("PJ camina", true);
             animPJ.SetBool("esta en el piso", true);
+            animPJ.SetBool("PJ cae", false);
             rb2D.velocity = new Vector2(-velMov, rb2D.velocity.y);
             spriteR.flipX = true;
             //transform.eulerAngles = new Vector3(0f, 180f, 0f);
@@ -91,6 +95,7 @@ public class MovJugador : MonoBehaviour
                 //anim.SetBool("caminar", true);
                 animPJ.SetBool("PJ camina", true);
                 animPJ.SetBool("esta en el piso", true);
+                animPJ.SetBool("PJ cae", false);
                 rb2D.velocity = new Vector2(velMov, rb2D.velocity.y);
                 spriteR.flipX = false;
                 //transform.eulerAngles = new Vector3(0f, 0f, 0f);
@@ -106,6 +111,7 @@ public class MovJugador : MonoBehaviour
                 // anim.SetBool("caminar", false);
                 animPJ.SetBool("PJ camina", false);
                 animPJ.SetBool("esta en el piso", true);
+                animPJ.SetBool("PJ cae", false);
                 rb2D.velocity = new Vector2(0, rb2D.velocity.y);
             }
 
@@ -123,6 +129,8 @@ public class MovJugador : MonoBehaviour
             estaEnElPiso = true;
             //anim.SetBool("saltar", false);
             animPJ.SetBool("esta en el piso", true);
+            animPJ.SetBool("PJ cae", false);
+            //animPJ.SetBool("PJ camina", false);
 
         }
         else
@@ -133,6 +141,8 @@ public class MovJugador : MonoBehaviour
                 estaEnElPiso = true;
                 //anim.SetBool("saltar", false);
                 animPJ.SetBool("esta en el piso", true);
+                animPJ.SetBool("PJ cae", false);
+                //animPJ.SetBool("PJ camina", false);
 
 
             }
@@ -144,6 +154,8 @@ public class MovJugador : MonoBehaviour
                     estaEnElPiso = true;
                     //anim.SetBool("saltar", false);
                     animPJ.SetBool("esta en el piso", true);
+                    animPJ.SetBool("PJ cae", false);
+                    //animPJ.SetBool("PJ camina", false);
 
 
                 }
@@ -151,6 +163,10 @@ public class MovJugador : MonoBehaviour
                 {
                     //Debug.Log("no colisione con el piso"); //esto era para probar que no colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando no colisiona con algo dentro de la LayerMask "Pisos del nivel"
                     estaEnElPiso = false;
+                    animPJ.SetBool("esta en el piso", false);
+                    animPJ.SetBool("PJ cae", true);
+                    animPJ.SetBool("PJ camina", false);
+
                 }
             }
         }

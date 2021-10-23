@@ -7,8 +7,8 @@ public class LogicPasarNiveles : MonoBehaviour
     [Header("Booleano que indica si se paso el nivel")]
     [SerializeField] private bool pasasteElNivel;//este booleano sirve para indicar si se completo el nivel y pasar a la escena siguiente
 
-    [Header("Indice de Escena Actual")]//esto indica el indice de la escena actual,al que despues más adelante se le suma "1" para poder avanzar a la siguiente escena 
-    [SerializeField] private int indiceEscenaActual;
+    /*[Header("Indice de Escena Actual")]//esto indica el indice de la escena actual,al que despues más adelante se le suma "1" para poder avanzar a la siguiente escena 
+    [SerializeField] private int indiceEscenaActual;*/
 
     [Header("Nombre de Escena Actual")]
     [SerializeField] private string nombreEscena;
@@ -20,7 +20,7 @@ public class LogicPasarNiveles : MonoBehaviour
     private void Start()
     {
         Debug.Log(SceneManager.GetActiveScene().buildIndex);//esto era para probar unas cosas de codigo.Basicamente sirve para saber el indice de la escena activa.
-        Debug.Log("el indice de la escena actual es:" + indiceEscenaActual);
+        Debug.Log("el indice de la escena actual es:" + SceneManager.GetActiveScene().buildIndex);
         pasasteElNivel = false;
     }
     private void Update()
@@ -31,7 +31,7 @@ public class LogicPasarNiveles : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
-            SceneManager.LoadScene(indiceEscenaActual + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 
@@ -39,7 +39,7 @@ public class LogicPasarNiveles : MonoBehaviour
     {
         if (pasasteElNivel == true)
         {
-            SceneManager.LoadScene(indiceEscenaActual + 1);
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
     }
 

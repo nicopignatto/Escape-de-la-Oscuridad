@@ -27369,6 +27369,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mira_Jugador
       objectReference: {fileID: 0}
+    - target: {fileID: 1318481089243465988, guid: 354f612af6bd1e84b82f05096f36a925, type: 3}
+      propertyPath: cursorActivo
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1318481089243465990, guid: 354f612af6bd1e84b82f05096f36a925, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -28305,14 +28309,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Jugador
       objectReference: {fileID: 0}
-    - target: {fileID: 6252415834323729875, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252415834323729875, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
-      propertyPath: m_Material
-      value: 
-      objectReference: {fileID: 6200000, guid: 182f030ab24b81d4ba0ad80f160e6e97, type: 2}
     - target: {fileID: 7715920651435339736, guid: bb00e9621d3f9fa45be90d184be1d539, type: 3}
       propertyPath: barraVida
       value: 

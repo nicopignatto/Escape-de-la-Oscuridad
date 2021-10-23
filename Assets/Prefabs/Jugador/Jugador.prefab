@@ -159,6 +159,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   animPJ: {fileID: 2393662204019875710}
+  medidaRaycast2D: 0.2
 --- !u!114 &7715920651435339736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -214,7 +215,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 10
-  m_Sprite: {fileID: -3145328045451892686, guid: da0c6337f3fc61a4e8cf129b914c55e4, type: 3}
+  m_Sprite: {fileID: -3145328045451892686, guid: c795b42023a0c7e458e2b15e831a16b2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

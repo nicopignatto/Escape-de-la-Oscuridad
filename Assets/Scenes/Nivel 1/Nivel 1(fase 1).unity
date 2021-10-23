@@ -78606,6 +78606,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 566115002}
     - target: {fileID: 1318481089243465988, guid: 354f612af6bd1e84b82f05096f36a925, type: 3}
+      propertyPath: cursorActivo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1318481089243465988, guid: 354f612af6bd1e84b82f05096f36a925, type: 3}
       propertyPath: distanciaMaxMovCursor
       value: 0
       objectReference: {fileID: 0}
@@ -78662,10 +78666,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 121227776, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 0891242ea668b61418d1814adbf6985f, type: 3}
     - target: {fileID: 4342855053086294296, guid: e4c0d275d47daa647b6559690afcd5c3, type: 3}
       propertyPath: m_Name
       value: Oscuridad
