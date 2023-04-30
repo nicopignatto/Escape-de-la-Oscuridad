@@ -66,11 +66,14 @@ public class MovJugador : MonoBehaviour
 
     private void Mov()
     {
-        
-
         rayitoPies1 = Physics2D.Raycast(objetoRaycast1.transform.position, Vector2.down, medidaRaycast2D, capaDelPiso);
         rayitoPies2 = Physics2D.Raycast(objetoRaycast2.transform.position, Vector2.down,medidaRaycast2D, capaDelPiso);
         rayitoPies3 = Physics2D.Raycast(objetoRaycast3.transform.position, Vector2.down, medidaRaycast2D, capaDelPiso);
+
+      
+        
+
+
         if (Input.GetKey(teclaIzq))
         {
             //float rotacionY = 180f;
