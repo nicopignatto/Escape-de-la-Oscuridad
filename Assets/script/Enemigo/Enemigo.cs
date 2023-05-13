@@ -28,7 +28,7 @@ public class Enemigo : MonoBehaviour
 
     //esta variable determina si el enemigo esta muerto, se usa para reproducir sonido de muerte
     private bool enemigoDead;
-    [SerializeField] AudioSource repMuerte;
+    //[SerializeField] AudioSource repMuerte;
 
     private void Start()
     {

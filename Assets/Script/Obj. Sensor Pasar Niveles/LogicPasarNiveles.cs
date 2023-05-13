@@ -19,8 +19,8 @@ public class LogicPasarNiveles : MonoBehaviour
     /*private Scene escenaDeseada;*/  //esta variable hacia referencia a la escena y eso no permite acceder a diferentes aspectos de la escena(POR FAVOR NO BORRAR ESTA LINEA)
     private void Start()
     {
-        Debug.Log(SceneManager.GetActiveScene().buildIndex);//esto era para probar unas cosas de codigo.Basicamente sirve para saber el indice de la escena activa.
-        Debug.Log("el indice de la escena actual es:" + SceneManager.GetActiveScene().buildIndex);
+        //Debug.Log(SceneManager.GetActiveScene().buildIndex);//esto era para probar unas cosas de codigo.Basicamente sirve para saber el indice de la escena activa.
+        //Debug.Log("el indice de la escena actual es:" + SceneManager.GetActiveScene().buildIndex);
         pasasteElNivel = false;
     }
     private void Update()
