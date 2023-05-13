@@ -26,8 +26,8 @@ public class Enemigo : MonoBehaviour
 
     private Quaternion rotacionPersonaje;
 
-    //esta variable determina si el enemigo esta muerto, se usa para reproducir sonido de muerte
-    private bool enemigoDead;
+    //esta variable determina si el enemigo esta muerto, se usa para reproducir sonido de muerte.Pero la comentamos por que no se usa.
+    //private bool enemigoDead;
     //[SerializeField] AudioSource repMuerte;
 
     private void Start()
@@ -35,7 +35,7 @@ public class Enemigo : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         jugador = GameObject.Find("Jugador");
         movAtaque = false;
-        enemigoDead = false;
+        
         
     }
 
@@ -66,7 +66,7 @@ public class Enemigo : MonoBehaviour
 
         if (vida == 0)
         {
-            enemigoDead = true;
+            //enemigoDead = true;
 
             FindObjectOfType<AudioManager>().Play("enemigoMuerte");
 
@@ -79,7 +79,7 @@ public class Enemigo : MonoBehaviour
 
             Invoke("DesactivarObj", .5f);
             //Destroy(this.gameObject,1);
-            enemigoDead = false;
+            //enemigoDead = false;
             vida = -1;
 
             //vida = 2;

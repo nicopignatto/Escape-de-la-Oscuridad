@@ -5,6 +5,7 @@ using UnityEngine;
 public class RaycastingObject : MonoBehaviour
 {
     [Header("Distancia del raycast")]
+    [Range(0.5f,5f)]
     [SerializeField] private float distRayo;
 
     [Header("Layer raycast")]
@@ -42,9 +43,14 @@ public class RaycastingObject : MonoBehaviour
 
     private void DebugRaycastInfoCollision()
     {
-        if (raycastH2D && raycastH2D.collider.tag == "Enemy")
+        if (raycastH2D.collider != null)
         {
-            Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);                       
+            if (raycastH2D.collider.tag=="Enemy")
+            {
+                Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);
+
+            }
+            
         }
     }
 }
