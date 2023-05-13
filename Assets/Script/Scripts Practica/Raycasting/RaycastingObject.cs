@@ -45,7 +45,8 @@ public class RaycastingObject : MonoBehaviour
     {
         if (raycastH2D.collider != null)
         {
-            if (raycastH2D.collider.tag=="Enemy")
+            //print(raycastH2D.collider.gameObject.name);
+            if (raycastH2D.collider.gameObject.tag=="Enemy")
             {
                 Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);
 
