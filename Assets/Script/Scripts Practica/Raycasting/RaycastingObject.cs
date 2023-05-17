@@ -17,20 +17,20 @@ public class RaycastingObject : MonoBehaviour
     //variables privadas
     private RaycastHit2D raycastH2D;
 
-    private void Start()
-    {
-        raycastH2D = Physics2D.Raycast(posRayo.transform.position, Vector2.right, distRayo, layerMaskRaycastPrueba);
-    }
-
     private void FixedUpdate()
     {
-        //DebugRaycast();
-        DebugRaycastInfoCollision();
+        raycastH2D = Physics2D.Raycast(posRayo.transform.position, Vector2.right, distRayo, layerMaskRaycastPrueba);
+        //Debug.DrawRay(posRayo.transform.position, Vector3.right * distRayo, Color.magenta);
+        //DebugRaycastInfoCollision();
+        DebugRaycast();
     }
 
-    private void Update()
+    private void OnDrawGizmos()
     {
-        Debug.DrawRay(posRayo.transform.position, Vector3.right * distRayo, Color.magenta);
+        /*
+        Gizmos.color = Color.magenta;
+        Gizmos.DrawRay(posRayo.transform.position, Vector3.right * distRayo);
+        */
     }
 
     private void DebugRaycast()
@@ -43,15 +43,9 @@ public class RaycastingObject : MonoBehaviour
 
     private void DebugRaycastInfoCollision()
     {
-        if (raycastH2D.collider != null)
+        if (raycastH2D && raycastH2D.collider.tag == "Enemy")
         {
-            //print(raycastH2D.collider.gameObject.name);
-            if (raycastH2D.collider.gameObject.tag=="Enemy")
-            {
-                Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);
-
-            }
-            
+            Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);            
         }
     }
 }

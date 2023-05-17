@@ -34,6 +34,7 @@ public class MovJugador : MonoBehaviour
     [SerializeField] Animator animPJ;
 
     [Header("Medida de los Raycast Pies 1,2 y 3")]
+    [Range(0.2f,5f)]
     [SerializeField] private float medidaRaycast2D;
 
     private Quaternion rotacionPersonaje;
@@ -48,10 +49,19 @@ public class MovJugador : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Mov();
-        Debug.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized*medidaRaycast2D, Color.red);
+        /*Debug.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized*medidaRaycast2D, Color.red);
         Debug.DrawRay(objetoRaycast2.transform.position, Vector3.down.normalized * medidaRaycast2D, Color.blue);
-        Debug.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * medidaRaycast2D, Color.green);
+        Debug.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * medidaRaycast2D, Color.green);*/
+        Mov();
+        //Debug.Log("estaenElPiso: " + estaEnElPiso);
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.green;
+        Gizmos.DrawRay(objetoRaycast1.transform.position, Vector3.down.normalized * medidaRaycast2D);
+        Gizmos.DrawRay(objetoRaycast2.transform.position, Vector3.down.normalized * medidaRaycast2D);
+        Gizmos.DrawRay(objetoRaycast3.transform.position, Vector3.down.normalized * medidaRaycast2D);
     }
 
     /*private void OnCollisionEnter2D(Collision2D collision)
@@ -126,8 +136,9 @@ public class MovJugador : MonoBehaviour
             anim.SetBool("caminar", false);
         }*/
 
-        if (rayitoPies1==true)
+        if (rayitoPies1 && rayitoPies1.collider.CompareTag("piso"))
         {
+            //print("Colisione con un objeto con el tag: " + rayitoPies1.collider.tag);
             //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
             estaEnElPiso = true;
             //anim.SetBool("saltar", false);
@@ -138,8 +149,9 @@ public class MovJugador : MonoBehaviour
         }
         else
         {
-            if (rayitoPies2==true)
+            if (rayitoPies2 && rayitoPies2.collider.CompareTag("piso"))
             {
+                //print("Colisione con un objeto con el tag: " + rayitoPies2.collider.tag);
                 //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                 estaEnElPiso = true;
                 //anim.SetBool("saltar", false);
@@ -151,8 +163,9 @@ public class MovJugador : MonoBehaviour
             }
             else
             {
-                if (rayitoPies3==true)
+                if (rayitoPies3 && rayitoPies3.collider.CompareTag("piso"))
                 {
+                    //print("Colisione con un objeto con el tag: " + rayitoPies3.collider.tag);
                     //Debug.Log("colisione con el piso"); //esto era para probar que colisionaba con algo;y funciona.Osea se pone en consola este mensaje cuando colisiona con algo dentro de la LayerMask "Pisos del nivel"
                     estaEnElPiso = true;
                     //anim.SetBool("saltar", false);
@@ -185,7 +198,4 @@ public class MovJugador : MonoBehaviour
         
        
     }
-
-    
-
 }
