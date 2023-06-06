@@ -20,17 +20,18 @@ public class RaycastingObject : MonoBehaviour
     private void FixedUpdate()
     {
         raycastH2D = Physics2D.Raycast(posRayo.transform.position, Vector2.right, distRayo, layerMaskRaycastPrueba);
+        //raycastH2D = Physics2D.Raycast(posRayo.transform.position, Vector2.right, distRayo);
         //Debug.DrawRay(posRayo.transform.position, Vector3.right * distRayo, Color.magenta);
-        //DebugRaycastInfoCollision();
-        DebugRaycast();
+        DebugRaycastInfoCollision();
+        //DebugRaycast();
     }
 
     private void OnDrawGizmos()
     {
-        /*
+        
         Gizmos.color = Color.magenta;
         Gizmos.DrawRay(posRayo.transform.position, Vector3.right * distRayo);
-        */
+        
     }
 
     private void DebugRaycast()
@@ -48,4 +49,10 @@ public class RaycastingObject : MonoBehaviour
             Debug.Log("el nombre del objeto con el que colisiona es: " + raycastH2D.collider.name);            
         }
     }
+    /*
+    Consejo Raycast2D:Hay que recordar que los raycast pueden colisionar desde su inicio hasta su final,por lo tanto si los vamos
+    a poner en una posicion en la que estaria colisionando con algo en su inicio.Lo mejor es ponerle al objeto con el que colisio
+    na desde su inicio una LayerMask distinta(ej. "IgnoreRaycast") o también especificarle al raycast una LayerMask especifica y 
+    asignarle esa misma LayerMask al objeto con el que queremos que colisione el raycast.
+    */
 }
