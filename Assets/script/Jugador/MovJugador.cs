@@ -191,7 +191,11 @@ public class MovJugador : MonoBehaviour
         {
             //anim.SetBool("saltar", true);
             animPJ.SetBool("esta en el piso", false);
-            rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+            //rb2D.velocity = new Vector2(rb2D.velocity.x, velSalto);
+            //rb2D.velocity = new Vector2(rb2D.velocity.x, 1f) * velSalto;
+            //rb2D.velocity = new Vector2(rb2D.velocity.x, 1f).normalized * velSalto;
+            //rb2D.velocity = Vector2.up * velSalto;
+            rb2D.AddForce(Vector2.up * velSalto, ForceMode2D.Force);
             estaEnElPiso = false;
             
         }
