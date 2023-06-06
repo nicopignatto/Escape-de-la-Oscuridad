@@ -195,7 +195,10 @@ public class MovJugador : MonoBehaviour
             //rb2D.velocity = new Vector2(rb2D.velocity.x, 1f) * velSalto;
             //rb2D.velocity = new Vector2(rb2D.velocity.x, 1f).normalized * velSalto;
             //rb2D.velocity = Vector2.up * velSalto;
+            velSalto = 350f;
+            Debug.Log("Vel Salto cuando se ejecuta el salto: " + velSalto);
             rb2D.AddForce(Vector2.up * velSalto, ForceMode2D.Force);
+            //Las lineas 198 a las 200 están para setear la velocidad de salto en 360f cuando se presiona la tecla space.Y tambien solo cuando en modo play.
             estaEnElPiso = false;
             
         }
