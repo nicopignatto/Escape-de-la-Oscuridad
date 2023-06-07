@@ -44,7 +44,6 @@ public class MovJugador : MonoBehaviour
         rb2D = GetComponent<Rigidbody2D>();
         estaEnElPiso = true;
         spriteR = GetComponent<SpriteRenderer>();
-        
     }
 
     private void FixedUpdate()
